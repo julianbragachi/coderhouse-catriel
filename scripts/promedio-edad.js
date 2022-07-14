@@ -1,22 +1,48 @@
-let continuar = true;
-let cantidad = 0;
-let acumuladorEdad = 0;
+function calcularPromedio(personas) {
+  let acum = 0;
 
-do {
-  const text = prompt(
-    `Ingrese edad para la persona ${cantidad + 1} (Para cancelar escriba ESC)`
-  );
+  personas.forEach((persona) => {
+    acum = acum + persona.edad;
+  });
 
-  if (text.toLocaleUpperCase() === "ESC") {
-    continuar = false;
-  } else {
-    const edad = parseInt(text);
+  return acum / personas.length;
+}
 
-    acumuladorEdad = acumuladorEdad + edad;
-    cantidad = cantidad + 1;
-  }
-} while (continuar);
+function mostrarInformacion(personas) {
+  const promedio = calcularPromedio(personas);
 
-const promedio = acumuladorEdad / cantidad;
+  console.info(` ℹ️ La edad promedio es: ${promedio}`);
 
-alert("La edad promedio es: " + promedio);
+  personas.forEach((persona) => {
+    console.info(` 👨🏼‍🎓 ${persona.nombre}. Edad: ${persona.edad}`);
+  });
+}
+
+function iniciarSimulador() {
+  const personas = [];
+  let continuar = true;
+
+  do {
+    const nombre = prompt(
+      `Ingrese nombre para la persona ${
+        personas.length + 1
+      } (Para finalizar escriba ESC)`
+    );
+
+    if (nombre.toLocaleUpperCase() === "ESC") {
+      continuar = false;
+    } else {
+      const edad = parseInt(
+        prompt(`Ingrese edad para la persona ${personas.length + 1}`)
+      );
+
+      personas.push({ nombre: nombre, edad: edad });
+    }
+  } while (continuar);
+
+  alert("Abri la consola para ver la informacion");
+
+  mostrarInformacion(personas);
+}
+
+iniciarSimulador();
