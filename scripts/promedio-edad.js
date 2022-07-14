@@ -1,11 +1,7 @@
 function calcularPromedio(personas) {
-  let acum = 0;
+  const total = personas.reduce((acum, persona) => acum + persona.edad, 0);
 
-  personas.forEach((persona) => {
-    acum = acum + persona.edad;
-  });
-
-  return acum / personas.length;
+  return total / personas.length;
 }
 
 function mostrarInformacion(personas) {
