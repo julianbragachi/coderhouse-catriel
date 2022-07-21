@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desafio coderhouse</title>
-    <script src="./scripts/promedio-edad.js"></script>
-</head>
-<body>
-    
-</body>
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="container">
+    <form id="form" class="form-container">
+      <div class="inputs-container">
+        <div class="person-container">
+          <div class="input-container">
+            <label>Nombre</label>
+            <input type="text" required />
+          </div>
+
+          <div class="input-container">
+            <label>Edad</label>
+            <input type="number" required />
+          </div>
+        </div>
+      </div>
+
+      <button>Finalizar</button>
+      <button id="btn-add" class="orange" type="button">
+        Agregar otra persona
+      </button>
+      <h1 style="text-align: center" id="result"></h1>
+    </form>
+  </body>
+  <script src="./scripts/promedio-edad.js"></script>
 </html>
