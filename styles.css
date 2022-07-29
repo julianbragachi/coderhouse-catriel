@@ -77,3 +77,13 @@ body {
     border: 1px solid #d06f37;
     background-color: #d06f37;
   }
+
+  button.red {
+    border: 1px solid #e54444;
+    background-color: #e54444;
+  }
+
+  button.red:hover {
+    border: 1px solid #ce3232;
+    background-color: #ce3232;
+  }
