@@ -9,15 +9,18 @@ function simulador() {
   form.addEventListener("submit", handleSubmit);
 
   loadFromStorage();
+  addNewPerson();
 
   function addNewPerson() {
     const div = document.createElement("div");
+    const childrenCount = inputsContainer.children.length;
 
     div.classList.add("person-container");
-    div.innerHTML =
-      '<div class="input-container"><label>Nombre</label><input type="text" required /></div><div class="input-container"><label>Edad</label><input type="number" required /></div>';
+    div.innerHTML = `<div class="input-container"><label>Nombre:</label><input type="text" id="name-${childrenCount}" required /></div><div class="input-container"><label>Fecha nacimiento:</label><input type="text" id="date-${childrenCount}" required /></div>`;
 
     inputsContainer.appendChild(div);
+
+    datepicker(`#date-${childrenCount}`, { startDate: new Date(1994, 7, 23) });
   }
 
   function handleSubmit(event) {
@@ -26,10 +29,11 @@ function simulador() {
     const personsDOM = document.querySelectorAll(".person-container");
     const personas = [];
 
-    personsDOM.forEach((elem) => {
+    personsDOM.forEach((elem, index) => {
       const persona = {};
 
-      persona.edad = parseInt(elem.querySelector("input[type=number]").value);
+      persona.nacimiento = new Date(elem.querySelector(`#date-${index}`).value);
+      persona.edad = dateFns.differenceInYears(new Date(), persona.nacimiento);
       persona.nombre = elem.querySelector("input[type=text]").value;
 
       personas.push(persona);

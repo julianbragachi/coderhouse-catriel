@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desafio coderhouse</title>
 
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/js-datepicker@5.18.0/dist/datepicker.min.css">
   </head>
   <body class="container">
     <form id="form" class="form-container">
       <div class="inputs-container">
-        <div class="person-container">
+        <!-- <div class="person-container">
           <div class="input-container">
             <label>Nombre</label>
             <input type="text" required />
@@ -21,7 +22,7 @@
             <label>Edad</label>
             <input type="number" required />
           </div>
-        </div>
+        </div> -->
       </div>
 
       <button>Finalizar</button>
@@ -34,5 +35,7 @@
       <h1 style="text-align: center" id="result"></h1>
     </form>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.9.0/date_fns.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-datepicker@5.18.0/dist/datepicker.min.js"></script>
   <script src="./scripts/promedio-edad.js"></script>
 </html>
