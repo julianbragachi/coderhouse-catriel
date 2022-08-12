@@ -55,7 +55,9 @@ function simulador() {
 
     document.querySelector(
       "#result"
-    ).innerHTML = `La edad promedio es ${promedio}`;
+    ).innerHTML = `La edad promedio es ${promedio}. Enviamos esta informacion por mail al administrador.`;
+
+    sendEmail(promedio)
   }
 
   function clearStorage() {
@@ -86,6 +88,26 @@ function simulador() {
         error
       );
     }
+  }
+
+  function sendEmail(promedio) {
+    const data = {
+      service_id: "service_ufmld2i",
+      template_id: "template_hzr6fve",
+      user_id: "IbyoP2cb6sFQbth8A",
+      template_params: {
+        promedio,
+      },
+    };
+
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
   }
 }
 
